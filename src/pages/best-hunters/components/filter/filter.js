@@ -1,25 +1,25 @@
 // @flow
-import React, { useState } from 'react';
+import React from 'react';
 import styles from 'pages/best-hunters/components/filter/Filter.module.css';
 
 type Props={
     filter: string,
+    handleFilter: Function,
     status: boolean
 };
 
 function Filter(props: Props) {
-    const { filter, status } = props;
-    const [active, setActive] = useState(status);
-    const handleClick = () => {
-        console.log('yyyy');
-        setActive(true);
-    };
-    const classes = active ? `${styles.filter} ${styles.activeFilter}` : styles.filter;
+    const { filter, handleFilter, status } = props;
+    const classes = status ? `${styles.filter} ${styles.activeFilter}` : styles.filter;
     return (
         <li
             className={classes}
-            onClick={handleClick}
-            onKeyDown={handleClick}
+            onClick={() => {
+                handleFilter(filter);
+            }}
+            onKeyDown={() => {
+                handleFilter(filter);
+            }}
             role="menuitem"
         >
             {filter}

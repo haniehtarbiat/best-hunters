@@ -9,13 +9,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
-p,h1{
+p,h1,ul{
   margin:0;
 }
 *{
-  --black:rgba(0,0,0,0);
+  --black:rgba(0,0,0,1);
   --light-black:rgba(0,0,0,0.85);
   --lightest-black:rgba(0,0,0,0.5);
+  --active-filter:rgba(216, 216, 216, 0.27);
 }
 
 @font-face {

@@ -13,8 +13,10 @@
     margin-top: 3.5rem;
 }
 .filterContainer{
+    border-bottom:1px solid var(--black) ;
     display: flex;
     justify-content: space-between;
+    padding-bottom: 40px;
     padding-top:4px;
 }
 .filterContainer p{
