@@ -1,5 +1,8 @@
 import React from 'react';
 import styles from 'pages/best-hunters/BestHunters.module.css';
+import Filter from 'pages/best-hunters/components/filter/filter';
+
+const filtersArray = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
 
 function BestHunters() {
     return (
@@ -10,10 +13,13 @@ function BestHunters() {
             <div className={styles.filterContainer}>
                 <p>با شکارچیان برتر در بازه‌ی زمانی دلخواهتون آشنا بشید.</p>
                 <ul>
-                    <li>مهر-آبان ۱۳۹۹ </li>
-                    <li>آذر-دی ۱۳۹۹ </li>
-                    <li>بهمن-اسفند ۱۳۹۹ </li>
-                    <li>همیشه</li>
+                    {filtersArray.map((filter, index) => (
+                        <Filter
+                            filter={filter}
+                            key={filter}
+                            status={index === (filtersArray.length) - 1}
+                        />
+                    ))}
                 </ul>
             </div>
         </div>
