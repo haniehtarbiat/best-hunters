@@ -7,3 +7,22 @@
          width:80.6%;
      }
 }
+.heading{
+    color:var(--light-black);
+    font-size: 2rem;
+    margin-top: 3.5rem;
+}
+.filterContainer{
+    display: flex;
+    justify-content: space-between;
+    padding-top:4px;
+}
+.filterContainer p{
+    color:var(--lightest-black);
+}
+.filterContainer ul{
+    list-style-type: none;
+}
+.filterContainer ul li{
+    display: inline-block;
+}

@@ -9,6 +9,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
+p,h1{
+  margin:0;
+}
 *{
   --black:rgba(0,0,0,0);
   --light-black:rgba(0,0,0,0.85);
