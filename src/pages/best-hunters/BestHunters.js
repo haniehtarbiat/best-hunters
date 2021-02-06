@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import Filter from 'pages/best-hunters/components/filter/Filter';
 import styles from 'pages/best-hunters/BestHunters.module.css';
-import Filter from 'pages/best-hunters/components/filter/filter';
 
 const filtersArray = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
 
