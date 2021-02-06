@@ -37,6 +37,19 @@ module.exports = {
             },
         ],
         'react/display-name': 1,
+        'jsx-a11y/no-noninteractive-element-interactions': [
+            'error',
+            {
+                handlers: [
+                    'onClick',
+                    'onMouseDown',
+                    'onMouseUp',
+                    'onKeyPress',
+                    'onKeyDown',
+                    'onKeyUp',
+                ],
+            },
+        ],
     },
     settings: {
         'import/resolver': {

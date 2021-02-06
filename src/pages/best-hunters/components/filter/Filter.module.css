@@ -1,0 +1,12 @@
+.filter{
+    color:var(--lightest-black);
+    display: inline-block;
+    margin-right: 2px;
+    padding:4px 10px;
+
+}
+.activeFilter{
+    background-color: var(--active-filter);
+    border-radius: 8px;
+    color:var(--black);
+}
