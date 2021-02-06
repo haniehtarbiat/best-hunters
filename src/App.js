@@ -1,5 +1,5 @@
 import './App.module.css';
-import BestHunters from 'pages/BestHunters/BestHunters';
+import BestHunters from 'pages/best-hunters/BestHunters';
 
 function App() {
     return (
