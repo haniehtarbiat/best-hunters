@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import getHunters from 'pages/best-hunters/api/getHunters';
+import convertFilter from 'pages/best-hunters/utils/convertFilter';
 import FilterButton from 'pages/best-hunters/components/filter-button/FilterButton';
-import styles from 'pages/best-hunters/BestHunters.module.css';
 import TopThreeHunters from 'pages/best-hunters/components/top-three-hunters/TopThreeHunters';
+import styles from 'pages/best-hunters/BestHunters.module.css';
 
 const filters = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
 
@@ -23,6 +24,17 @@ function BestHunters() {
     if (data) {
         if (activeFilter === filters[filters.length - 1]) {
             bestHuntersList = data.filter((hunter) => hunter.hountingRate <= 3);
+        } else {
+            (data.map(
+                (hunter) => (
+                    hunter.history.map((item) => (
+                        item.rate <= 3
+                        && filters[convertFilter(item) - 1] === activeFilter
+                            ? bestHuntersList.push(hunter)
+                            : null
+                    ))
+                ),
+            ));
         }
     }
     return (
