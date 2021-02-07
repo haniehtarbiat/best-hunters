@@ -3,7 +3,6 @@
     justify-content: center;
     margin: 24px auto 40px;
     position: relative;
-    width:638px
 }
 
 .topThreeHuntersContainer span{
@@ -19,10 +18,9 @@
 
 .secondHunter{
     display: flex;
-    direction: ltr;
-    justify-content: space-between;
-    left:1px;
+    justify-content: center;
     position: absolute;
+    right:calc(50% + 60px);
     top:160px;
 }
 
@@ -37,8 +35,8 @@
 
 .thirdHunter{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     position: absolute;
-    right:0;
+    left:calc(50% + 60px);
     top:160px;
 }

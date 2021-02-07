@@ -14,38 +14,25 @@ function TopThreeHunters(props: Props) {
     const { bestHuntersList } = props;
     return (
         <div className={styles.topThreeHuntersContainer}>
-            {
-                bestHuntersList.map((info, index) => (
-                    index > 0
-                        ? (
-                            <div
-                                key={info.userName}
-                                className={
-                                    index > 1 && index < 3
-                                        ? styles.thirdHunter
-                                        : styles.secondHunter
-                                }
-                            >
-                                <div>
-                                    { index > 1 && index < 3
-                                        ? <Leader2 /> : <Leader3 /> }
-                                    <span>{info.userName}</span>
-                                </div>
-                                <Avatar pic={info.avatar} size={120} />
-                            </div>
-                        )
-                        : (
-                            <div
-                                className={styles.firstHunter}
-                                key={info.userName}
-                            >
-                                <Leader1 />
-                                <span>{info.userName}</span>
-                                <Avatar pic={info.avatar} size={120} />
-                            </div>
-                        )
-                ))
-            }
+            <div className={styles.firstHunter}>
+                <Leader1 />
+                <span>{bestHuntersList[0].userName}</span>
+                <Avatar pic={bestHuntersList[0].avatar} size={120} />
+            </div>
+            <div className={styles.secondHunter}>
+                <Avatar pic={bestHuntersList[1].avatar} size={120} />
+                <div>
+                    <Leader2 />
+                    <span>{bestHuntersList[1].userName}</span>
+                </div>
+            </div>
+            <div className={styles.thirdHunter}>
+                <div>
+                    <Leader3 />
+                    <span>{bestHuntersList[2].userName}</span>
+                </div>
+                <Avatar pic={bestHuntersList[2].avatar} size={120} />
+            </div>
         </div>
     );
 }
