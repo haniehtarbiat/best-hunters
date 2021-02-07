@@ -10,18 +10,21 @@ const filters = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-
 function BestHunters() {
     const [activeFilter, setActiveFilter] = useState(filters[filters.length - 1]);
     const {
-        data, isLoading, error, isError,
+        data, isLoading, isError,
     } = useQuery(
         'hunters',
         async () => getHunters,
     );
     console.log(data);
-    console.log(isLoading);
-    console.log(error);
-    console.log(isError);
     const handleFilter = (filter) => {
         setActiveFilter(filter);
     };
+    if (isLoading) {
+        return (<div>...isLoading</div>);
+    }
+    if (isError) {
+        return (<div>error</div>);
+    }
     return (
         <div className={styles.container}>
             <header>
