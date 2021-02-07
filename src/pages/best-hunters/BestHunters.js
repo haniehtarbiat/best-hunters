@@ -13,9 +13,8 @@ function BestHunters() {
         data, isLoading, isError,
     } = useQuery(
         'hunters',
-        async () => getHunters,
+        getHunters,
     );
-    console.log(data);
     const handleFilter = (filter) => {
         setActiveFilter(filter);
     };
@@ -43,7 +42,31 @@ function BestHunters() {
                     ))}
                 </ul>
             </div>
-            <Avatar pic="" size={120} />
+            <div className={styles.topThreeHuntersContainer}>
+                {data.filter((hunter) => hunter.hountingRate <= 3)
+                    .map((info, index) => (
+                        index > 0
+                            ? (
+                                <div
+                                    key={info.userName}
+                                    className={
+                                        index > 1 && index < 3
+                                            ? styles.thirdHunter
+                                            : styles.secondHunter
+                                    }
+                                >
+                                    <Avatar pic={info.avatar} size={120} />
+                                </div>
+                            )
+                            : (
+                                <div
+                                    key={info.userName}
+                                >
+                                    <Avatar pic={info.avatar} size={120} />
+                                </div>
+                            )
+                    ))}
+            </div>
         </div>
     );
 }
