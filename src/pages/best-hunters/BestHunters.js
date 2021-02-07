@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Filter from 'pages/best-hunters/components/filter/Filter';
+import Avatar from 'pages/best-hunters/components/avatar/Avatar';
 import styles from 'pages/best-hunters/BestHunters.module.css';
 
 const filtersArray = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
@@ -27,6 +28,7 @@ function BestHunters() {
                     ))}
                 </ul>
             </div>
+            <Avatar pic="" size={120} />
         </div>
     );
 }
