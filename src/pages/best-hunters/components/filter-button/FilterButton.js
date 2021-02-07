@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import styles from 'pages/best-hunters/components/filter/Filter.module.css';
+import styles from 'pages/best-hunters/components/filter-button/FilterButton.module.css';
 
 type Props={
     filter: string,
@@ -8,7 +8,7 @@ type Props={
     status: boolean
 };
 
-function Filter(props: Props) {
+function FilterButton(props: Props) {
     const { filter, handleFilter, status } = props;
     const classes = status ? `${styles.filter} ${styles.activeFilter}` : styles.filter;
     return (
@@ -26,4 +26,4 @@ function Filter(props: Props) {
         </li>
     );
 }
-export default Filter;
+export default FilterButton;

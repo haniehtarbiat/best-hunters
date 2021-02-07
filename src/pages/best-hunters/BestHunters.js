@@ -1,23 +1,16 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import getHunters from 'pages/best-hunters/api/getHunters';
-import Filter from 'pages/best-hunters/components/filter/Filter';
-import Avatar from 'pages/best-hunters/components/avatar/Avatar';
-import { ReactComponent as Leader1 } from 'assets/icons/leader-board-1.svg';
-import { ReactComponent as Leader2 } from 'assets/icons/leader-board-2.svg';
-import { ReactComponent as Leader3 } from 'assets/icons/leader-board-3.svg';
+import FilterButton from 'pages/best-hunters/components/filter-button/FilterButton';
 import styles from 'pages/best-hunters/BestHunters.module.css';
+import TopThreeHunters from 'pages/best-hunters/components/top-three-hunters/TopThreeHunters';
 
 const filters = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
 
 function BestHunters() {
+    const { data, isLoading, isError } = useQuery('hunters', getHunters);
+    let bestHuntersList = [];
     const [activeFilter, setActiveFilter] = useState(filters[filters.length - 1]);
-    const {
-        data, isLoading, isError,
-    } = useQuery(
-        'hunters',
-        getHunters,
-    );
     const handleFilter = (filter) => {
         setActiveFilter(filter);
     };
@@ -26,6 +19,11 @@ function BestHunters() {
     }
     if (isError) {
         return (<div>error</div>);
+    }
+    if (data) {
+        if (activeFilter === filters[filters.length - 1]) {
+            bestHuntersList = data.filter((hunter) => hunter.hountingRate <= 3);
+        }
     }
     return (
         <div className={styles.container}>
@@ -36,7 +34,7 @@ function BestHunters() {
                 <p>با شکارچیان برتر در بازه‌ی زمانی دلخواهتون آشنا بشید.</p>
                 <ul>
                     {filters.map((filter) => (
-                        <Filter
+                        <FilterButton
                             filter={filter}
                             handleFilter={handleFilter}
                             key={filter}
@@ -45,39 +43,7 @@ function BestHunters() {
                     ))}
                 </ul>
             </div>
-            <div className={styles.topThreeHuntersContainer}>
-                {data.filter((hunter) => hunter.hountingRate <= 3)
-                    .map((info, index) => (
-                        index > 0
-                            ? (
-                                <div
-                                    key={info.userName}
-                                    className={
-                                        index > 1 && index < 3
-                                            ? styles.thirdHunter
-                                            : styles.secondHunter
-                                    }
-                                >
-                                    <div>
-                                        { index > 1 && index < 3
-                                            ? <Leader2 /> : <Leader3 /> }
-                                        <span>{info.userName}</span>
-                                    </div>
-                                    <Avatar pic={info.avatar} size={120} />
-                                </div>
-                            )
-                            : (
-                                <div
-                                    className={styles.firstHunter}
-                                    key={info.userName}
-                                >
-                                    <Leader1 />
-                                    <span>{info.userName}</span>
-                                    <Avatar pic={info.avatar} size={120} />
-                                </div>
-                            )
-                    ))}
-            </div>
+            <TopThreeHunters bestHuntersList={bestHuntersList} />
         </div>
     );
 }
