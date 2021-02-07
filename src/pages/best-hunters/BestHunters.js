@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import getHunters from 'pages/best-hunters/api/getHunters';
 import Filter from 'pages/best-hunters/components/filter/Filter';
 import Avatar from 'pages/best-hunters/components/avatar/Avatar';
+import { ReactComponent as Leader1 } from 'assets/icons/leader-board-1.svg';
+import { ReactComponent as Leader2 } from 'assets/icons/leader-board-2.svg';
+import { ReactComponent as Leader3 } from 'assets/icons/leader-board-3.svg';
 import styles from 'pages/best-hunters/BestHunters.module.css';
-import getHunters from 'pages/best-hunters/api/getHunters';
 
 const filters = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
 
@@ -19,7 +22,7 @@ function BestHunters() {
         setActiveFilter(filter);
     };
     if (isLoading) {
-        return (<div>...isLoading</div>);
+        return (<div className={styles.Loading}>...isLoading</div>);
     }
     if (isError) {
         return (<div>error</div>);
@@ -55,13 +58,21 @@ function BestHunters() {
                                             : styles.secondHunter
                                     }
                                 >
+                                    <div>
+                                        { index > 1 && index < 3
+                                            ? <Leader2 /> : <Leader3 /> }
+                                        <span>{info.userName}</span>
+                                    </div>
                                     <Avatar pic={info.avatar} size={120} />
                                 </div>
                             )
                             : (
                                 <div
+                                    className={styles.firstHunter}
                                     key={info.userName}
                                 >
+                                    <Leader1 />
+                                    <span>{info.userName}</span>
                                     <Avatar pic={info.avatar} size={120} />
                                 </div>
                             )

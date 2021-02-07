@@ -1,3 +1,11 @@
+.Loading{
+    align-items: center;
+    display: flex;
+    font-size: 24px;
+    justify-content: center;
+    height: 100vh;
+}
+
 .container{
     margin:0 auto;
 }
@@ -23,23 +31,51 @@
 .filterContainer ul{
     list-style-type: none;
 }
+
 .topThreeHuntersContainer{
     display: flex;
     justify-content: center;
-    margin: 0 auto;
+    margin: 24px auto 40px;
     position: relative;
-    width:360px
+    width:638px
 }
+.topThreeHuntersContainer span{
+    color: var(--black);
+    font-size: 24px;
+}
+
+.firstHunter{
+    align-items: center;
+    flex-flow: column;
+    display: flex;
+}
+
 .secondHunter{
-    top:60px;
+    display: flex;
+    direction: ltr;
+    justify-content: space-between;
+    left:1px;
     position: absolute;
-    left:0;
+    top:160px;
 }
+
+.secondHunter div,
+.thirdHunter div{
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
 .thirdHunter{
-    top:60px;
+    display: flex;
+    justify-content: space-between;
     position: absolute;
     right:0;
+    top:160px;
 }
+
 @media(min-width:992px){
     .container{
         width:80.6%;
