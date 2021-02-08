@@ -1,14 +1,42 @@
 import React, { useState } from 'react';
-import Filter from 'pages/best-hunters/components/filter/Filter';
+import { useQuery } from 'react-query';
+import getHunters from 'pages/best-hunters/api/getHunters';
+import convertFilter from 'pages/best-hunters/utils/convertFilter';
+import FilterButton from 'pages/best-hunters/components/filter-button/FilterButton';
+import TopThreeHunters from 'pages/best-hunters/components/top-three-hunters/TopThreeHunters';
 import styles from 'pages/best-hunters/BestHunters.module.css';
 
-const filtersArray = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
+const filters = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
 
 function BestHunters() {
-    const [activeFilter, setActiveFilter] = useState('همیشه');
+    const { data, isLoading, isError } = useQuery('hunters', getHunters);
+    let bestHuntersList = [];
+    const [activeFilter, setActiveFilter] = useState(filters[filters.length - 1]);
     const handleFilter = (filter) => {
         setActiveFilter(filter);
     };
+    if (isLoading) {
+        return (<div className={styles.Loading}>...isLoading</div>);
+    }
+    if (isError) {
+        return (<div>error</div>);
+    }
+    if (data) {
+        if (activeFilter === filters[filters.length - 1]) {
+            bestHuntersList = data.filter((hunter) => hunter.hountingRate <= 3);
+        } else {
+            (data.map(
+                (hunter) => (
+                    hunter.history.map((item) => (
+                        item.rate <= 3
+                        && filters[convertFilter(item) - 1] === activeFilter
+                            ? bestHuntersList.push(hunter)
+                            : null
+                    ))
+                ),
+            ));
+        }
+    }
     return (
         <div className={styles.container}>
             <header>
@@ -17,8 +45,8 @@ function BestHunters() {
             <div className={styles.filterContainer}>
                 <p>با شکارچیان برتر در بازه‌ی زمانی دلخواهتون آشنا بشید.</p>
                 <ul>
-                    {filtersArray.map((filter) => (
-                        <Filter
+                    {filters.map((filter) => (
+                        <FilterButton
                             filter={filter}
                             handleFilter={handleFilter}
                             key={filter}
@@ -27,6 +55,7 @@ function BestHunters() {
                     ))}
                 </ul>
             </div>
+            <TopThreeHunters bestHuntersList={bestHuntersList} />
         </div>
     );
 }

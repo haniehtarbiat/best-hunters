@@ -51,6 +51,8 @@ module.exports = {
             },
         ],
         'linebreak-style': ['error', process.env.NODE_ENV === 'prod' ? 'unix' : 'windows'],
+        'prettier/prettier': ['error', { endOfLine: 'auto' },
+        ],
     },
     settings: {
         'import/resolver': {
