@@ -50,12 +50,32 @@
   width: 10%;
 }
 
-.col2{
+.col2 {
   width: 20%;
 }
 
 .col3 {
   width: 30%;
+}
+
+.showButton {
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-family: YekanBakhRegular;
+  margin: 40px auto;
+}
+
+.showButton svg {
+  height: 24px;
+  vertical-align: middle;
+  width: 24px;
+}
+
+.showLessButton svg {
+  transform: rotate(180deg);
 }
 
 @media (min-width: 992px) {

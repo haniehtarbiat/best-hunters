@@ -5,6 +5,7 @@ import convertFilter from 'pages/best-hunters/utils/convertFilter';
 import FilterButton from 'pages/best-hunters/components/filter-button/FilterButton';
 import TopThreeHunters from 'pages/best-hunters/components/top-three-hunters/TopThreeHunters';
 import BestHuntersRow from 'pages/best-hunters/components/best-hunters-row/BestHuntersRow';
+import { ReactComponent as ExpandMore } from 'assets/icons/expand-more.svg';
 import styles from 'pages/best-hunters/BestHunters.module.css';
 
 const filters = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
@@ -14,8 +15,12 @@ function BestHunters() {
     let bestHuntersList = [];
     let hunterList = [];
     const [activeFilter, setActiveFilter] = useState(filters[filters.length - 1]);
+    const [showAll, setShowAll] = useState(false);
     const handleFilter = (filter) => {
         setActiveFilter(filter);
+    };
+    const handleShowMore = () => {
+        setShowAll(!showAll);
     };
     if (isLoading) {
         return (<div className={styles.Loading}>...isLoading</div>);
@@ -53,6 +58,8 @@ function BestHunters() {
             ));
         }
     }
+    const buttonText = showAll ? ' کمتر ببین' : 'بیشتر ببین';
+    const buttonStyle = showAll ? `${styles.showButton} ${styles.showLessButton}` : styles.showButton;
     return (
         <div className={styles.container}>
             <header>
@@ -81,8 +88,19 @@ function BestHunters() {
                     <th className={styles.col2}>امتیاز</th>
                     <th className={styles.col2}>شمار گزارش‌ها</th>
                 </tr>
-                {hunterList.map((info) => (<BestHuntersRow key={info.id} hunterInfo={info} />))}
+                {showAll ? hunterList.map(
+                    (info) => (
+                        <BestHuntersRow key={info.id} hunterInfo={info} />),
+                ) : hunterList.map(
+                    (info, index) => (index <= 5
+                        ? <BestHuntersRow key={info.id} hunterInfo={info} />
+                        : null),
+                )}
             </table>
+            <button type="button" className={buttonStyle} onClick={handleShowMore}>
+                {buttonText}
+                <ExpandMore />
+            </button>
         </div>
     );
 }
