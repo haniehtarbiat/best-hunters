@@ -32,6 +32,32 @@
   list-style-type: none;
 }
 
+.table {
+  border: 1px solid var(--table-border);
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
+}
+
+.table th {
+  color: var(--lightest-black);
+  border-bottom: 1px solid var(--table-border);
+  padding: 16px;
+  table-layout: auto;
+}
+
+.col1 {
+  width: 10%;
+}
+
+.col2{
+  width: 20%;
+}
+
+.col3 {
+  width: 30%;
+}
+
 @media (min-width: 992px) {
   .container {
     width: 80.6%;

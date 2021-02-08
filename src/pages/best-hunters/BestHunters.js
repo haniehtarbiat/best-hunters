@@ -8,7 +8,6 @@ import BestHuntersRow from 'pages/best-hunters/components/best-hunters-row/BestH
 import styles from 'pages/best-hunters/BestHunters.module.css';
 
 const filters = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
-const headings = ['', 'رتبه', 'شکارچی', 'امتیاز', 'شمار گزارش‌ها'];
 
 function BestHunters() {
     const { data, isLoading, isError } = useQuery('hunters', getHunters);
@@ -73,9 +72,14 @@ function BestHunters() {
                 </ul>
             </div>
             <TopThreeHunters bestHuntersList={bestHuntersList} />
-            <table>
+            <table className={styles.table}>
                 <tr>
-                    {headings.map((heading) => (<th key={heading}>{heading}</th>))}
+                    <th className={styles.col1} />
+                    <th className={styles.col1}>رتبه</th>
+                    <th className={styles.col2}>شکارچی</th>
+                    <th className={styles.col2} />
+                    <th className={styles.col2}>امتیاز</th>
+                    <th className={styles.col2}>شمار گزارش‌ها</th>
                 </tr>
                 {hunterList.map((info) => (<BestHuntersRow key={info.id} hunterInfo={info} />))}
             </table>

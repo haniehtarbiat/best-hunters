@@ -3,6 +3,7 @@
   --light-black: rgba(0, 0, 0, 0.85);
   --lightest-black: rgba(0, 0, 0, 0.5);
   --active-filter: rgba(216, 216, 216, 0.27);
+  --table-border: #ededed;
 }
 
 @font-face {
