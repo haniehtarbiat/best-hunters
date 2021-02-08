@@ -4,13 +4,16 @@ import getHunters from 'pages/best-hunters/api/getHunters';
 import convertFilter from 'pages/best-hunters/utils/convertFilter';
 import FilterButton from 'pages/best-hunters/components/filter-button/FilterButton';
 import TopThreeHunters from 'pages/best-hunters/components/top-three-hunters/TopThreeHunters';
+import BestHuntersRow from 'pages/best-hunters/components/best-hunters-row/BestHuntersRow';
 import styles from 'pages/best-hunters/BestHunters.module.css';
 
 const filters = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
+const headings = ['', 'رتبه', 'شکارچی', 'امتیاز', 'شمار گزارش‌ها'];
 
 function BestHunters() {
     const { data, isLoading, isError } = useQuery('hunters', getHunters);
     let bestHuntersList = [];
+    let hunterList = [];
     const [activeFilter, setActiveFilter] = useState(filters[filters.length - 1]);
     const handleFilter = (filter) => {
         setActiveFilter(filter);
@@ -37,6 +40,20 @@ function BestHunters() {
             ));
         }
     }
+    if (data) {
+        if (activeFilter === filters[filters.length - 1]) {
+            hunterList = data;
+        } else {
+            (data.map(
+                (hunter) => (
+                    hunter.history.map((item) => (filters[convertFilter(item) - 1] === activeFilter
+                        ? hunterList.push(hunter)
+                        : null
+                    ))
+                ),
+            ));
+        }
+    }
     return (
         <div className={styles.container}>
             <header>
@@ -56,6 +73,12 @@ function BestHunters() {
                 </ul>
             </div>
             <TopThreeHunters bestHuntersList={bestHuntersList} />
+            <table>
+                <tr>
+                    {headings.map((heading) => (<th key={heading}>{heading}</th>))}
+                </tr>
+                {hunterList.map((info) => (<BestHuntersRow key={info.id} hunterInfo={info} />))}
+            </table>
         </div>
     );
 }
