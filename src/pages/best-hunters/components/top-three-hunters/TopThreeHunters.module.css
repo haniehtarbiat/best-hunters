@@ -24,19 +24,27 @@
     top:160px;
 }
 
-.secondHunter div,
-.thirdHunter div{
-    align-items: center;
-    display: flex;
-    flex-flow: column;
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
 .thirdHunter{
     display: flex;
     justify-content: center;
     position: absolute;
     left:calc(50% + 60px);
     top:160px;
+}
+
+.hunterInfoContainer{
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: absolute;
+    top:-20px;
+}
+.InfoContainer{
+    position: relative;
+}
+
+.thirdHunter .hunterInfoContainer{
+    left:50%;
 }

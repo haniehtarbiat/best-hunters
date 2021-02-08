@@ -21,15 +21,19 @@ function TopThreeHunters(props: Props) {
             </div>
             <div className={styles.secondHunter}>
                 <Avatar pic={bestHuntersList[1].avatar} size={120} />
-                <div>
-                    <Leader2 />
-                    <span>{bestHuntersList[1].userName}</span>
+                <div className={styles.InfoContainer}>
+                    <div className={styles.hunterInfoContainer}>
+                        <Leader2 />
+                        <span>{bestHuntersList[1].userName}</span>
+                    </div>
                 </div>
             </div>
             <div className={styles.thirdHunter}>
-                <div>
-                    <Leader3 />
-                    <span>{bestHuntersList[2].userName}</span>
+                <div className={styles.InfoContainer}>
+                    <div className={styles.hunterInfoContainer}>
+                        <Leader3 />
+                        <span>{bestHuntersList[2].userName}</span>
+                    </div>
                 </div>
                 <Avatar pic={bestHuntersList[2].avatar} size={120} />
             </div>
