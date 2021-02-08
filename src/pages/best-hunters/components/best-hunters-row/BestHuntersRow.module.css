@@ -2,11 +2,13 @@
   border-bottom: 1px solid var(--table-border);
   line-height: 52px;
 }
+
 .avatarCell {
   align-items: center;
   display: flex;
   justify-content: center;
 }
+
 .avatarCell span {
   margin-right: 16px;
 }

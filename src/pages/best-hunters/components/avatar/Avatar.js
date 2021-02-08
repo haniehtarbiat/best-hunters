@@ -4,7 +4,7 @@ import styles from './Avatar.module.css';
 
 type Props={
     pic: string,
-size: number
+    size: number
 };
 
 function Avatar(props: Props) {

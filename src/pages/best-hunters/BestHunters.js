@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import getHunters from 'pages/best-hunters/api/getHunters';
 import convertFilter from 'pages/best-hunters/utils/convertFilter';
+import { ReactComponent as ExpandMore } from 'assets/icons/expand-more.svg';
 import FilterButton from 'pages/best-hunters/components/filter-button/FilterButton';
 import TopThreeHunters from 'pages/best-hunters/components/top-three-hunters/TopThreeHunters';
 import BestHuntersRow from 'pages/best-hunters/components/best-hunters-row/BestHuntersRow';
-import { ReactComponent as ExpandMore } from 'assets/icons/expand-more.svg';
 import styles from 'pages/best-hunters/BestHunters.module.css';
 
 const filters = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
@@ -58,7 +58,6 @@ function BestHunters() {
             ));
         }
     }
-    console.log(hunterList);
     const buttonText = showAll ? ' کمتر ببین' : 'بیشتر ببین';
     const buttonStyle = showAll ? `${styles.showButton} ${styles.showLessButton}` : styles.showButton;
     return (
