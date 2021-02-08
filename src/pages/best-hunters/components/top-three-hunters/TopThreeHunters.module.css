@@ -1,50 +1,50 @@
-.topThreeHuntersContainer{
-    display: flex;
-    justify-content: center;
-    margin: 24px auto 40px;
-    position: relative;
+.topThreeHuntersContainer {
+  display: flex;
+  justify-content: center;
+  margin: 24px auto 40px;
+  position: relative;
 }
 
-.topThreeHuntersContainer span{
-    color: var(--black);
-    font-size: 24px;
+.topThreeHuntersContainer span {
+  color: var(--black);
+  font-size: 24px;
 }
 
-.firstHunter{
-    align-items: center;
-    flex-flow: column;
-    display: flex;
+.firstHunter {
+  align-items: center;
+  flex-flow: column;
+  display: flex;
 }
 
-.secondHunter{
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    right:calc(50% + 60px);
-    top:160px;
+.secondHunter {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: calc(50% + 60px);
+  top: 160px;
 }
 
-.thirdHunter{
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    left:calc(50% + 60px);
-    top:160px;
+.thirdHunter {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: calc(50% + 60px);
+  top: 160px;
 }
 
-.hunterInfoContainer{
-    align-items: center;
-    display: flex;
-    flex-flow: column;
-    padding-left: 16px;
-    padding-right: 16px;
-    position: absolute;
-    top:-20px;
+.hunterInfoContainer {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: absolute;
+  top: -20px;
 }
-.InfoContainer{
-    position: relative;
+.InfoContainer {
+  position: relative;
 }
 
-.thirdHunter .hunterInfoContainer{
-    left:50%;
+.thirdHunter .hunterInfoContainer {
+  left: 50%;
 }
