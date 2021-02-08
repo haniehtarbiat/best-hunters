@@ -58,6 +58,7 @@ function BestHunters() {
             ));
         }
     }
+    console.log(hunterList);
     const buttonText = showAll ? ' کمتر ببین' : 'بیشتر ببین';
     const buttonStyle = showAll ? `${styles.showButton} ${styles.showLessButton}` : styles.showButton;
     return (
@@ -80,22 +81,26 @@ function BestHunters() {
             </div>
             <TopThreeHunters bestHuntersList={bestHuntersList} />
             <table className={styles.table}>
-                <tr>
-                    <th className={styles.col1} />
-                    <th className={styles.col1}>رتبه</th>
-                    <th className={styles.col2}>شکارچی</th>
-                    <th className={styles.col2} />
-                    <th className={styles.col2}>امتیاز</th>
-                    <th className={styles.col2}>شمار گزارش‌ها</th>
-                </tr>
-                {showAll ? hunterList.map(
-                    (info) => (
-                        <BestHuntersRow key={info.id} hunterInfo={info} />),
-                ) : hunterList.map(
-                    (info, index) => (index <= 5
-                        ? <BestHuntersRow key={info.id} hunterInfo={info} />
-                        : null),
-                )}
+                <thead>
+                    <tr>
+                        <th className={styles.col1} />
+                        <th className={styles.col1}>رتبه</th>
+                        <th className={styles.col2}>شکارچی</th>
+                        <th className={styles.col2} />
+                        <th className={styles.col2}>امتیاز</th>
+                        <th className={styles.col2}>شمار گزارش‌ها</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {showAll ? hunterList.map(
+                        (info) => (
+                            <BestHuntersRow key={info.id} hunterInfo={info} />),
+                    ) : hunterList.map(
+                        (info, index) => (index <= 5
+                            ? <BestHuntersRow key={info.id} hunterInfo={info} />
+                            : null),
+                    )}
+                </tbody>
             </table>
             <button type="button" className={buttonStyle} onClick={handleShowMore}>
                 {buttonText}

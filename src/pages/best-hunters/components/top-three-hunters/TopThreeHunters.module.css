@@ -21,16 +21,16 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  right: calc(50% + 60px);
-  top: 160px;
+  right: calc(50% + 61px);
+  top: 162px;
 }
 
 .thirdHunter {
   display: flex;
   justify-content: center;
   position: absolute;
-  left: calc(50% + 60px);
-  top: 160px;
+  left: calc(50% + 61px);
+  top: 162px;
 }
 
 .hunterInfoContainer {
