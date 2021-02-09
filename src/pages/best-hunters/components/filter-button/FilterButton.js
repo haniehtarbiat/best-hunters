@@ -26,4 +26,5 @@ function FilterButton(props: Props) {
         </li>
     );
 }
+
 export default FilterButton;

@@ -20,7 +20,7 @@ function BestHunters() {
         setShowAll(!showAll);
     };
     if (isLoading) {
-        return (<div className={styles.Loading}>...isLoading</div>);
+        return (<div className={styles.loading}>...isLoading</div>);
     }
     if (isError) {
         return (<div>error</div>);
@@ -58,7 +58,7 @@ function BestHunters() {
                         <span className={styles.mediumContainer}>شمار گزارش‌ها</span>
                     </div>
                 </div>
-                <div className={styles.tableBody}>
+                <div>
                     {showAll ? data.map(
                         (info) => (
                             <BestHuntersRow key={info.id} hunterInfo={info} />),
@@ -76,4 +76,5 @@ function BestHunters() {
         </div>
     );
 }
+
 export default BestHunters;

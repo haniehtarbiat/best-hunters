@@ -33,4 +33,5 @@ function CrownIcon(props: Props) {
         </svg>
     );
 }
+
 export default CrownIcon;

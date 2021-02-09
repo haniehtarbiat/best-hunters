@@ -16,4 +16,5 @@ function Avatar(props: Props) {
         </div>
     );
 }
+
 export default Avatar;

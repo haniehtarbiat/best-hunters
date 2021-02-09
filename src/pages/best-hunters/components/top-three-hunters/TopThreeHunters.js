@@ -20,7 +20,7 @@ function TopThreeHunters(props: Props) {
             </div>
             <div className={styles.secondHunter}>
                 <Avatar pic={secondHunter.avatar} size={120} />
-                <div className={styles.InfoContainer}>
+                <div className={styles.infoContainer}>
                     <div className={styles.hunterInfoContainer}>
                         <CrownIcon name="very good" />
                         <span>{secondHunter.userName}</span>

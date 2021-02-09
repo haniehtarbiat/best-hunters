@@ -1,4 +1,4 @@
-.Loading {
+.loading {
   align-items: center;
   display: flex;
   font-size: 24px;
@@ -66,13 +66,13 @@
 .smallContainer {
   display: flex;
   justify-content: flex-start;
-  width: 18%;
+  width: 7%;
 }
 
 .mediumContainer{
   display: flex;
-  justify-content: flex-start;
-  width: 20%;
+  justify-content: center;
+  width: 25%;
 }
 
 .largeContainer {
