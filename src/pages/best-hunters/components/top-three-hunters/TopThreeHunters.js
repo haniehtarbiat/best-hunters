@@ -10,19 +10,20 @@ type Props={
 
 function TopThreeHunters(props: Props) {
     const { bestHuntersList } = props;
+    const [firstHunter, secondHunter, ThirdHunter] = bestHuntersList;
     return (
         <div className={styles.topThreeHuntersContainer}>
             <div className={styles.firstHunter}>
                 <CrownIcon name="excellent" />
-                <span>{bestHuntersList[0].userName}</span>
-                <Avatar pic={bestHuntersList[0].avatar} size={120} />
+                <span>{firstHunter.userName}</span>
+                <Avatar pic={firstHunter.avatar} size={120} />
             </div>
             <div className={styles.secondHunter}>
-                <Avatar pic={bestHuntersList[1].avatar} size={120} />
+                <Avatar pic={secondHunter.avatar} size={120} />
                 <div className={styles.InfoContainer}>
                     <div className={styles.hunterInfoContainer}>
                         <CrownIcon name="very good" />
-                        <span>{bestHuntersList[1].userName}</span>
+                        <span>{secondHunter.userName}</span>
                     </div>
                 </div>
             </div>
@@ -30,12 +31,13 @@ function TopThreeHunters(props: Props) {
                 <div className={styles.InfoContainer}>
                     <div className={styles.hunterInfoContainer}>
                         <CrownIcon name="good" />
-                        <span>{bestHuntersList[2].userName}</span>
+                        <span>{ThirdHunter.userName}</span>
                     </div>
                 </div>
-                <Avatar pic={bestHuntersList[2].avatar} size={120} />
+                <Avatar pic={ThirdHunter.avatar} size={120} />
             </div>
         </div>
     );
 }
+
 export default TopThreeHunters;
