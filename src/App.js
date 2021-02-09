@@ -1,3 +1,4 @@
+import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import BestHunters from 'pages/best-hunters/BestHunters';
 import './App.module.css';
