@@ -46,7 +46,7 @@ function BestHunters() {
                 </ul>
             </div>
             <TopThreeHunters bestHuntersList={data} />
-            <div className={styles.table}>
+            <div className={styles.huntersTable}>
                 <div className={styles.tableHeader}>
                     <div className={styles.headerRight}>
                         <span className={styles.smallContainer} />

@@ -32,7 +32,7 @@
   list-style-type: none;
 }
 
-.table {
+.huntersTable {
   border: 1px solid var(--table-border);
   text-align: center;
   width: 100%;
@@ -49,11 +49,10 @@
 
 .headerRight,
 .headerLeft {
-  color:var(--lightest-black);
+  color: var(--lightest-black);
   display: flex;
   font-weight: 600;
   width: 50%;
-
 }
 .headerRight {
   justify-content: flex-start;
@@ -69,7 +68,7 @@
   width: 7%;
 }
 
-.mediumContainer{
+.mediumContainer {
   display: flex;
   justify-content: center;
   width: 25%;
@@ -81,7 +80,7 @@
   width: 60%;
 }
 
-.justifyCenter{
+.justifyCenter {
   justify-content: center;
 }
 
