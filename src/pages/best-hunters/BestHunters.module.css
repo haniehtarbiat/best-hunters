@@ -91,7 +91,7 @@
   cursor: pointer;
   display: block;
   font-size: 16px;
-  font-family: YekanBakhRegular;
+  font-family: YekanBakhRegular, var(--generic-font);
   margin: 40px auto;
 }
 

@@ -4,6 +4,9 @@
   --lightest-black: rgba(0, 0, 0, 0.5);
   --active-filter: rgba(216, 216, 216, 0.27);
   --table-border: #ededed;
+  --generic-font: -apple-system, BlinkMacSystemFont, "Segoe UI",
+  "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+  "Helvetica Neue", sans-serif;
 }
 
 @font-face {
