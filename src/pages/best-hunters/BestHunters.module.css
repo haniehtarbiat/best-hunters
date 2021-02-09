@@ -1,4 +1,4 @@
-.Loading {
+.loading {
   align-items: center;
   display: flex;
   font-size: 24px;
@@ -30,6 +30,78 @@
 
 .filterContainer ul {
   list-style-type: none;
+}
+
+.huntersTable {
+  border: 1px solid var(--table-border);
+  text-align: center;
+  width: 100%;
+}
+
+.tableHeader {
+  border-bottom: 1px solid var(--table-border);
+  color: var(--light-black);
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  table-layout: auto;
+}
+
+.headerRight,
+.headerLeft {
+  color: var(--lightest-black);
+  display: flex;
+  font-weight: 600;
+  width: 50%;
+}
+.headerRight {
+  justify-content: flex-start;
+}
+
+.headerLeft {
+  justify-content: flex-end;
+}
+
+.smallContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 7%;
+}
+
+.mediumContainer {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
+
+.largeContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.showButton {
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-family: YekanBakhRegular, var(--generic-font);
+  margin: 40px auto;
+}
+
+.showButton svg {
+  height: 24px;
+  vertical-align: middle;
+  width: 24px;
+}
+
+.showLessButton svg {
+  transform: rotate(180deg);
 }
 
 @media (min-width: 992px) {

@@ -1,0 +1,11 @@
+.good {
+  opacity: 0.3;
+}
+
+.veryGood {
+  opacity: 0.5;
+}
+
+.excellent {
+  opacity: 1;
+}

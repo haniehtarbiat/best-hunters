@@ -1,9 +1,7 @@
 // @flow
 import React from 'react';
 import Avatar from 'pages/best-hunters/components/avatar/Avatar';
-import { ReactComponent as Leader2 } from 'assets/icons/leader-board-2.svg';
-import { ReactComponent as Leader3 } from 'assets/icons/leader-board-3.svg';
-import { ReactComponent as Leader1 } from 'assets/icons/leader-board-1.svg';
+import CrownIcon from 'pages/best-hunters/components/crown-icon/CrownIcon';
 import styles from './TopThreeHunters.module.css';
 
 type Props={
@@ -12,32 +10,34 @@ type Props={
 
 function TopThreeHunters(props: Props) {
     const { bestHuntersList } = props;
+    const [firstHunter, secondHunter, ThirdHunter] = bestHuntersList;
     return (
         <div className={styles.topThreeHuntersContainer}>
             <div className={styles.firstHunter}>
-                <Leader1 />
-                <span>{bestHuntersList[0].userName}</span>
-                <Avatar pic={bestHuntersList[0].avatar} size={120} />
+                <CrownIcon name="excellent" />
+                <span>{firstHunter.userName}</span>
+                <Avatar pic={firstHunter.avatar} size={120} />
             </div>
             <div className={styles.secondHunter}>
-                <Avatar pic={bestHuntersList[1].avatar} size={120} />
-                <div className={styles.InfoContainer}>
+                <Avatar pic={secondHunter.avatar} size={120} />
+                <div className={styles.infoContainer}>
                     <div className={styles.hunterInfoContainer}>
-                        <Leader2 />
-                        <span>{bestHuntersList[1].userName}</span>
+                        <CrownIcon name="very good" />
+                        <span>{secondHunter.userName}</span>
                     </div>
                 </div>
             </div>
             <div className={styles.thirdHunter}>
                 <div className={styles.InfoContainer}>
                     <div className={styles.hunterInfoContainer}>
-                        <Leader3 />
-                        <span>{bestHuntersList[2].userName}</span>
+                        <CrownIcon name="good" />
+                        <span>{ThirdHunter.userName}</span>
                     </div>
                 </div>
-                <Avatar pic={bestHuntersList[2].avatar} size={120} />
+                <Avatar pic={ThirdHunter.avatar} size={120} />
             </div>
         </div>
     );
 }
+
 export default TopThreeHunters;

@@ -1,0 +1,60 @@
+.tableRow {
+  border-bottom: 1px solid var(--table-border);
+  display: flex;
+  justify-content: space-between;
+  line-height: 52px;
+  padding: 0 16px;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.cellRight,
+.cellLeft {
+  align-items: center;
+  display: flex;
+  width: 50%;
+}
+
+.cellLeft {
+  justify-content: flex-end;
+}
+
+.cellRight {
+  justify-content: flex-start;
+}
+
+.smallContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 7%;
+}
+
+.mediumContainer {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
+
+.largeContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+}
+
+.largeContainer span{
+  font-weight: 500;
+  margin-right: 24px;
+  text-decoration: underline;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.tableRow svg {
+  height: 40px;
+  vertical-align: middle;
+  width: 40px;
+}

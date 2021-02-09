@@ -2,11 +2,13 @@
   display: flex;
   justify-content: center;
   margin: 24px auto 40px;
+  min-height: 360px;
   position: relative;
 }
 
 .topThreeHuntersContainer span {
   color: var(--black);
+  font-weight: 600;
   font-size: 24px;
 }
 
@@ -20,16 +22,16 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  right: calc(50% + 60px);
-  top: 160px;
+  right: calc(50% + 61px);
+  top: 162px;
 }
 
 .thirdHunter {
   display: flex;
   justify-content: center;
   position: absolute;
-  left: calc(50% + 60px);
-  top: 160px;
+  left: calc(50% + 61px);
+  top: 162px;
 }
 
 .hunterInfoContainer {
@@ -41,10 +43,11 @@
   position: absolute;
   top: -20px;
 }
-.InfoContainer {
+
+.infoContainer {
   position: relative;
 }
 
 .thirdHunter .hunterInfoContainer {
-  left: 50%;
+  left: 100%;
 }

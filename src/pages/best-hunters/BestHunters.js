@@ -1,42 +1,32 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import getHunters from 'pages/best-hunters/api/getHunters';
-import convertFilter from 'pages/best-hunters/utils/convertFilter';
+import { ReactComponent as ExpandMore } from 'assets/icons/expand-more.svg';
 import FilterButton from 'pages/best-hunters/components/filter-button/FilterButton';
 import TopThreeHunters from 'pages/best-hunters/components/top-three-hunters/TopThreeHunters';
+import BestHuntersRow from 'pages/best-hunters/components/best-hunters-row/BestHuntersRow';
 import styles from 'pages/best-hunters/BestHunters.module.css';
 
 const filters = ['مهر-آبان ۱۳۹۹', 'آذر-دی ۱۳۹۹ ', 'بهمن-اسفند ۱۳۹۹ ', 'همیشه'];
 
 function BestHunters() {
     const { data, isLoading, isError } = useQuery('hunters', getHunters);
-    let bestHuntersList = [];
     const [activeFilter, setActiveFilter] = useState(filters[filters.length - 1]);
+    const [showAll, setShowAll] = useState(false);
     const handleFilter = (filter) => {
         setActiveFilter(filter);
     };
+    const handleShowMore = () => {
+        setShowAll(!showAll);
+    };
     if (isLoading) {
-        return (<div className={styles.Loading}>...isLoading</div>);
+        return (<div className={styles.loading}>...isLoading</div>);
     }
     if (isError) {
         return (<div>error</div>);
     }
-    if (data) {
-        if (activeFilter === filters[filters.length - 1]) {
-            bestHuntersList = data.filter((hunter) => hunter.hountingRate <= 3);
-        } else {
-            (data.map(
-                (hunter) => (
-                    hunter.history.map((item) => (
-                        item.rate <= 3
-                        && filters[convertFilter(item) - 1] === activeFilter
-                            ? bestHuntersList.push(hunter)
-                            : null
-                    ))
-                ),
-            ));
-        }
-    }
+    const buttonText = showAll ? ' کمتر ببین' : 'بیشتر ببین';
+    const buttonStyle = showAll ? `${styles.showButton} ${styles.showLessButton}` : styles.showButton;
     return (
         <div className={styles.container}>
             <header>
@@ -55,8 +45,36 @@ function BestHunters() {
                     ))}
                 </ul>
             </div>
-            <TopThreeHunters bestHuntersList={bestHuntersList} />
+            <TopThreeHunters bestHuntersList={data} />
+            <div className={styles.huntersTable}>
+                <div className={styles.tableHeader}>
+                    <div className={styles.headerRight}>
+                        <span className={styles.smallContainer} />
+                        <span className={styles.mediumContainer}>رتبه</span>
+                        <span className={styles.largeContainer}>شکارچی</span>
+                    </div>
+                    <div className={styles.headerLeft}>
+                        <span className={`${styles.largeContainer} ${styles.justifyCenter}`}>امتیاز</span>
+                        <span className={styles.mediumContainer}>شمار گزارش‌ها</span>
+                    </div>
+                </div>
+                <div>
+                    {showAll ? data.map(
+                        (info) => (
+                            <BestHuntersRow key={info.id} hunterInfo={info} />),
+                    ) : data.map(
+                        (info, index) => (index <= 5
+                            ? <BestHuntersRow key={info.id} hunterInfo={info} />
+                            : null),
+                    )}
+                </div>
+            </div>
+            <button type="button" className={buttonStyle} onClick={handleShowMore}>
+                {buttonText}
+                <ExpandMore />
+            </button>
         </div>
     );
 }
+
 export default BestHunters;
