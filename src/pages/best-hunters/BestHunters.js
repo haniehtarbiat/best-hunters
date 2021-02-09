@@ -46,18 +46,19 @@ function BestHunters() {
                 </ul>
             </div>
             <TopThreeHunters bestHuntersList={data} />
-            <table className={styles.table}>
-                <thead>
-                    <tr>
-                        <th className={styles.col1} />
-                        <th className={styles.col1}>رتبه</th>
-                        <th className={styles.col2}>شکارچی</th>
-                        <th className={styles.col2} />
-                        <th className={styles.col2}>امتیاز</th>
-                        <th className={styles.col2}>شمار گزارش‌ها</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div className={styles.table}>
+                <div className={styles.tableHeader}>
+                    <div className={styles.headerRight}>
+                        <span className={styles.smallContainer} />
+                        <span className={styles.mediumContainer}>رتبه</span>
+                        <span className={styles.largeContainer}>شکارچی</span>
+                    </div>
+                    <div className={styles.headerLeft}>
+                        <span className={`${styles.largeContainer} ${styles.justifyCenter}`}>امتیاز</span>
+                        <span className={styles.mediumContainer}>شمار گزارش‌ها</span>
+                    </div>
+                </div>
+                <div className={styles.tableBody}>
                     {showAll ? data.map(
                         (info) => (
                             <BestHuntersRow key={info.id} hunterInfo={info} />),
@@ -66,8 +67,8 @@ function BestHunters() {
                             ? <BestHuntersRow key={info.id} hunterInfo={info} />
                             : null),
                     )}
-                </tbody>
-            </table>
+                </div>
+            </div>
             <button type="button" className={buttonStyle} onClick={handleShowMore}>
                 {buttonText}
                 <ExpandMore />

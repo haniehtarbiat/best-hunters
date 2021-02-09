@@ -34,28 +34,55 @@
 
 .table {
   border: 1px solid var(--table-border);
-  border-collapse: collapse;
   text-align: center;
   width: 100%;
 }
 
-.table th {
-  color: var(--lightest-black);
+.tableHeader {
   border-bottom: 1px solid var(--table-border);
+  color: var(--light-black);
+  display: flex;
+  justify-content: space-between;
   padding: 16px;
   table-layout: auto;
 }
 
-.col1 {
-  width: 10%;
+.headerRight,
+.headerLeft {
+  color:var(--lightest-black);
+  display: flex;
+  font-weight: 600;
+  width: 50%;
+
+}
+.headerRight {
+  justify-content: flex-start;
 }
 
-.col2 {
+.headerLeft {
+  justify-content: flex-end;
+}
+
+.smallContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 18%;
+}
+
+.mediumContainer{
+  display: flex;
+  justify-content: flex-start;
   width: 20%;
 }
 
-.col3 {
-  width: 30%;
+.largeContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+}
+
+.justifyCenter{
+  justify-content: center;
 }
 
 .showButton {

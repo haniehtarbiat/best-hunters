@@ -1,16 +1,56 @@
 .tableRow {
   border-bottom: 1px solid var(--table-border);
+  display: flex;
+  justify-content: space-between;
   line-height: 52px;
+  padding: 0 16px;
 }
 
-.avatarCell {
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.cellRight,
+.cellLeft {
   align-items: center;
   display: flex;
-  justify-content: center;
+  width: 50%;
 }
 
-.avatarCell span {
-  margin-right: 16px;
+.cellLeft {
+  justify-content: flex-end;
+}
+
+.cellRight {
+  justify-content: flex-start;
+}
+
+.smallContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 18%;
+}
+
+.mediumContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 20%;
+}
+
+.largeContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+}
+
+.largeContainer span{
+  font-weight: 500;
+  margin-right: 24px;
+  text-decoration: underline;
+}
+
+.justifyCenter {
+  justify-content: center;
 }
 
 .tableRow svg {

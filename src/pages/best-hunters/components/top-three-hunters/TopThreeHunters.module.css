@@ -8,6 +8,7 @@
 
 .topThreeHuntersContainer span {
   color: var(--black);
+  font-weight: 600;
   font-size: 24px;
 }
 
