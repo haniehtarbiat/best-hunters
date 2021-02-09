@@ -1,10 +1,8 @@
 // @flow
 import React from 'react';
-import { ReactComponent as Leader2 } from 'assets/icons/leader-board-2.svg';
-import { ReactComponent as Leader3 } from 'assets/icons/leader-board-3.svg';
-import { ReactComponent as Leader1 } from 'assets/icons/leader-board-1.svg';
-import styles from 'pages/best-hunters/components/best-hunters-row/BestHuntersRow.module.css';
 import Avatar from 'pages/best-hunters/components/avatar/Avatar';
+import styles from 'pages/best-hunters/components/best-hunters-row/BestHuntersRow.module.css';
+import CrownIcon from 'pages/best-hunters/components/crown-icon/CrownIcon';
 
 type Props={
     hunterInfo: Array
@@ -15,11 +13,11 @@ function BestHuntersRow(props: Props) {
     const iconSelector = () => {
         switch (hunterInfo.hountingRate) {
         case 1:
-            return <Leader1 />;
+            return <CrownIcon name="excellent" />;
         case 2:
-            return <Leader2 />;
+            return <CrownIcon name="very good" />;
         default:
-            return <Leader3 />;
+            return <CrownIcon name="good" />;
         }
     };
     const icon = hunterInfo.hountingRate <= 3 ? iconSelector() : null;
@@ -37,4 +35,5 @@ function BestHuntersRow(props: Props) {
         </tr>
     );
 }
+
 export default BestHuntersRow;
